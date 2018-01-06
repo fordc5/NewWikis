@@ -1,4 +1,4 @@
-tweepy == version #
-time == version #
-requests == version #
-datetime == version #
+tweepy==3.5.0
+requests==2.18.4
+time==#
+datetime==#
