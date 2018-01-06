@@ -37,22 +37,15 @@ def scrapeTweets():
     jsonResponseLength = len(jsonResponse['query']['recentchanges'])
     if jsonResponseLength > 0:
         for newpage in jsonResponse['query']['recentchanges']:
-            if not (newpage['title'].startswith("User talk:") or 
-                 newpage['title'].startswith("Draft:") or 
-                 newpage['title'].startswith("Talk:") or 
-                 newpage['title'].startswith("User:") or
-                 newpage['title'].startswith("Wikipedia:") or
-                 newpage['title'].startswith("Template:") or
-                 newpage['title'].startswith("Category:") or 
-                 newpage['title'].startswith("Category talk:") ):
+            if newpage['ns'] == 0:
                 newdict[newpage['title']] = newpage['user']
     if len(newdict) == 0:
         print("No new updates!")
-    else:            
+    else:     
         print(newdict)
     
     # Print the json API response
-    #pprint(r.json())
+    pprint(r.json())
     
     return newdict
     
