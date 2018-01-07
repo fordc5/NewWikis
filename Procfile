@@ -1,1 +1,1 @@
-web: python twitterbot.py runserver 0.0.0.0:$PORT
+worker: python twitterbot.py
