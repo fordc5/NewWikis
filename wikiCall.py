@@ -33,6 +33,7 @@ def scrapeTweets():
     # Get length of response
     # Make sure the request is not empty
     # Make sure new page is of correct format
+    # Eliminate some repeats by checking whether exact title already contained
     jsonResponse = r.json()
     jsonResponseLength = len(jsonResponse['query']['recentchanges'])
     if jsonResponseLength > 0:
