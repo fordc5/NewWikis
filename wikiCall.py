@@ -38,7 +38,11 @@ def scrapeTweets():
     if jsonResponseLength > 0:
         for newpage in jsonResponse['query']['recentchanges']:
             if newpage['ns'] == 0:
-                newdict[newpage['title'].upper()] = newpage['user']
+                for page in newdict:
+                    if newpage['title'].upper() == page.upper():
+                        break
+                    else:
+                        newdict[newpage['title']] = newpage['user']
     if len(newdict) == 0:
         print("No new updates!")
     else:     
